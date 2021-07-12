@@ -1,0 +1,11 @@
+extend layout
+
+block content
+	form(method='GET' action='/home/login')
+		input#phone_email.form-control(placeholder='Phone Number or Email' name='phone_email')
+		br
+		input#pass.form-control(placeholder='Password' name='pass')
+		br
+		button.btn.btn-primary(type='button') Login
+	a(href='')
+		p Forgot Password

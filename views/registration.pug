@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+	head
+		title=title
+		script(
+		src='validation.js'
+		)
+		link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+	body
+		header.card-header
+			div.float-left
+				h3
+					strong Zawash 
+					h6=title
+			div.float-right
+				a(href='/') Home
+		form(method='POST' action='/register')
+				div.form-group
+					input#fname.form-control(type='text' placeholder='First Name' name='fname')
+					br
+					input#lname.form-control(type='text' placeholder='Last Name' name='lname') 
+					br
+					input#phone.form-control(type='number' placeholder='Phone Number' name='phone')
+					br
+					input#email.form-control(type='text' placeholder='Email(optional)' name='email')
+					br
+					select.form-control(data-toggle='select' name='origin')
+						option(value="Ugandan") Ugandan
+						option(value="Foreigner") Foreigner
+					br
+					input#nin.form-control(type='number' placeholder='NIN' name='nin')
+					br
+					input#pass.form-control(type='text' placeholder='Create Password' name='pass')
+					br
+					input#pass_cofirm.form-control(type='text' placeholder='Confirm Password' name='pass_confirm')
+					br
+					button.btn.btn-primary(type='submit') Create Account 
+	footer
+		div.float-left
+			p Already have an account.   
+		a(href='/home/login')  Sign in
+		br
+		p &copyAir Solutions, 2021
+
+

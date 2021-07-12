@@ -1,0 +1,35 @@
+body {
+	font-family:Gadugi;
+	background-color:#ffff;
+	text-align:center;
+}
+form{
+	display:inline-block;
+	width:50%;
+}
+ .form-group{
+ 	background-color:#6495ed;
+	border-radius:10px 10px;
+}
+input{
+	width:90%;
+	margin-top:10px;
+	margin-bottom:10px;
+	border:1px  solid #6495ed;
+	border-radius:5px 5px;
+	padding: 5px 0px 5px 10px ;
+}
+button{
+	width:97%;
+	color:#ffff;
+	background-color:#4169e1;
+	border:0px;
+	border-radius:7px 7px;
+	margin-bottom:20px;
+	margin-top: 20px;
+	padding-top:5px;
+	padding-bottom:5px;
+
+}
+footer {
+	font-size:12px;

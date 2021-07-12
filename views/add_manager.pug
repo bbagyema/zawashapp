@@ -1,0 +1,28 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register Manager
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-home-tab.nav-item.nav-link(href='/') Home
+        a#nav-profile-tab.nav-item.nav-link(href='/register/vehicle')  Add Vehicle
+        a#nav-contact-tab.nav-item.nav-link(href='/register/washer')  Add Washer
+        a#nav-profile-tab.nav-item.nav-link(href='/register/expenses')  Add Expenses
+        a#nav-contact-tab.nav-item.nav-link.active(href='/register/manager')  Add Manager
+    #nav-tabContent.tab-content
+        br
+        form(method="POST" action='/register/manager')
+            div.form-row
+                div.col.form-group
+                    label Username
+                    input.form-control(name="username")
+                div.col.form-group
+                    label Password
+                    input.form-control(type="password" name="password")
+            div.form-row
+                div.col.form-group
+                    button.btn.btn-primary.btn-block Register 
+                
+
+                            
