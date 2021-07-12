@@ -4,6 +4,7 @@ const mongoose=require('mongoose')
 const homeRoutes = require('./routes/homeRoutes');
 const regRoutes = require('./routes/regRoutes');
 const loginRoutes = require('./routes/loginRoutes');
+const bayofficeRoutes = require('./routes/bayofficeRoutes');
 require('dotenv').config()
 //instantiations
 const app = express()
@@ -29,6 +30,8 @@ app.use(express.static('public'));
 app.use('/', homeRoutes);
 app.use('/register', regRoutes);
 app.use('/home/login', loginRoutes);
+app.use('/bayoffice', bayofficeRoutes);
+
 
 // handle non existing routes
 app.get('*', (req, res)=> {

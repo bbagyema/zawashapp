@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 //washer routes
-router.get('/washer', (req,res)=>{
-    res.render('reg_washer',{title:"Register Car Washer"})
+router.get('/', (req,res)=>{
+    res.render("reg_washer",{title:"Bay Office"})
 })
 router.post('/washer',(req,res)=>{
 	console.log(req.body)
@@ -33,8 +33,6 @@ router.post('/manager',(req,res)=>{
 		console.log(err);
 		res.send('Sorry something went wrong');});
 
-		})
-	res.send("Manager now has access to Bayoffice.")
 })
 //expenses/inventory routes
 router.get("/expenses", (req,res)=>{
