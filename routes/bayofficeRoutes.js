@@ -16,7 +16,7 @@ washPackages = {
 	bodaboda:{washerFee:1500,packagePrice:5000},
 	engine:{washerFee:2000,packagePrice:10000}
 }
-router.get('/', (req,res)=>{
+router.get('/home', (req,res)=>{
     res.render("bay_office",{title:"Bay Office"}) 
    })
 //washer routes
@@ -57,7 +57,7 @@ router.post('/vehicle', async(req,res)=>{
 		data.packagePrice=packageDetails['packagePrice']
 		data.washerFee=packageDetails['washerFee']
 
-		const vehicle= new Vehicle(data);
+		const vehicle= new Vehicle(req.body);
 		await vehicle.save()
 		res.redirect('vehicle?alert=success')
 		}
@@ -69,6 +69,24 @@ router.post('/vehicle', async(req,res)=>{
 		}
 	})
 //manager routes
+router.get('/register', (req,res)=>{
+    res.render('registration', 
+    	{title:"Create Bayoffice",
+    	alert:req.query.alert})
+})
+router.post('/register',async(req,res)=>{
+	const manager= new Manager(req.body);
+	await Manager.register(manager, req.body.password, (err)=>{
+		if(err){
+			res.status(400).render('registration',
+				{title:'Create Bayoffice',
+				alert:'error'})
+			console.log(err)
+		}else{
+			res.render('bayoffice')
+		}
+	})
+})
 router.get('/manager', (req,res)=>{
     res.render('add_manager', 
     	{title:"Add Manager",

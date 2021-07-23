@@ -27,7 +27,29 @@ block content
                     input.form-control(placeholder="Place of Residence" name="residence")
             div.form-row
                 div.col.form-group
-                    button.btn.btn-primary.btn-block Add Washer 
-                
-
-                            
+                    button.btn.btn-primary.btn-block Add Washer
+    br
+    h3
+        Strong Washer List
+    table.table.table-bordered
+        thead
+            tr
+                th Full Name
+                th NIN
+                th Date of Birth
+                th Phone Number
+                th Gender
+                th Place of Residence
+        tbody
+            if users.length
+                each user in users
+                    tr
+                        td #{user.lname +''+ user.fname}
+                        td #{user.nin}
+                        td #{moment(user.dob).format('DD?MM?YYYY')}
+                        td #{user.phone}
+                        td #{user.gender}
+                        td #{user.residence}
+                            form(method='POST' action='/bayoffice/washer/delete_washer')
+                                input(type='hidden', placeholder='', name='id',value=user._id)
+                                button.btn.btn-primary.btn-block(type='submit') Delete Washer 

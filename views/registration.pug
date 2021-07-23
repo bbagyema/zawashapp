@@ -6,15 +6,20 @@ html(lang='en')
 		src='validation.js'
 		)
 		link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+		link(rel='stylesheet',href='registration.css')
 		meta(charset='UTF-8')
 		meta(name='viewport' content='width=device-width, initial-scale=1.0')
 	body
 		header.card-header(style='background-image:linear-gradient(to top left,#0066ff,#86cefa')
-			div(style='color=black').float-right
+			div.float-right
 				a(href='/') Home
 			h3
 				strong Zawash 
 				h6=title
+		div
+			img(src='wash1.png')
+		if alert=="error"
+			div.alert.alert-danger Something went wrong, try again!
 		form(method='POST' action='/register')
 			div.form-row
 				div.col.form-group
@@ -44,9 +49,12 @@ html(lang='en')
 					input#pass_cofirm.form-control(type='text' placeholder='Confirm Password' name='password_confirm')
 			div.form-row
 				div.col.form-group
-					button.btn.btn-primary Create Account 
-				p Already have an account.
-				a(href='/home/login')  Sign in
+					button.btn.btn-primary Create Account
+			div.form-row
+				small Already have an account.
+				small
+					a(href='/home/login')  Sign in
+	span
 	footer
 		div.row
 			p Find us along Mawanda Rd, 

@@ -8,7 +8,7 @@ block content
         form(method="POST" action='/bayoffice/vehicle')
             div.form-row
                 div.col.form-group
-                    input.form-control(placeholder='Number Plate'name="numberplate" type='text')
+                    input.form-control(placeholder='Number Plate' name="numberplate" type='text')
             div.form-row
                 div.col.form-group
                     label Date of arrival
@@ -18,14 +18,14 @@ block content
                         input.form-control(type="time" name="toa")
             div.form-row
                 div.col.form-group
-                    input.form-control(placeholder='Make'name="make")
+                    input.form-control(placeholder='Make' name="make")
                 div.col.form-group
                     input.form-control(placeholder='Color' name="color")
                 div.col.form-group
                     label Washer
                         select.form-control(name="washer")
                             each washer in washers
-                                option(value=washer._id)#{washer.fname +''+ washer.lname}
+                                option(value=washer._id) #{washer.fname +''+ washer.lname}
                 div.col.form-group
                     label Package
                         select.form-control(name="package")

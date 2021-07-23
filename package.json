@@ -5,6 +5,7 @@
   "main": "server.js",
   "start": "nodemon server.js",
   "dependencies": {
+    "@prettier/plugin-pug": "^1.16.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.2",
     "dotenv": "^10.0.0",

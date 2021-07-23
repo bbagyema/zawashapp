@@ -1,65 +1,27 @@
-doctype html
-  html
-    head
-      link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-        title= title
-    body
-      header.card-header(style='background-image:linear-gradient(to top left,#0066ff,#86cefa)')
-        h3
-          strong Zawash
-          h6=title
-      br
-      .container
-			a(href='layer2.html')
-				.Opt.shadow
-					div
-						img.display(src='../pictures_icons/unnamed.jpg' alt='')
-						span.rating
-					.name2 Shoprite
-					.info
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/star.svg' alt='')
-							| 3.7
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/location.png' alt='')
-							| 2km
-			a(href='..layer2.html')
-				.Opt.shadow.
-					div
-						img.display(src='../pictures_icons/pizza hut.png' alt='')
-						span.rating
-					.name2 Pizza Hut
-					.info
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/star.svg' alt='')
-							| 3.7
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/location.png' alt='')
-							| 2km
-			a(href='..layer2.html')
-				.Opt.shadow
-					div
-						img.display(src='../pictures_icons/kfc.png' alt='')
-						span.rating
-					.name2 KFC
-					.info
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/star.svg' alt='')
-							| 3.7
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/location.png' alt='')
-							| 2km
-			a(href='..layer2.html')
-				.Opt.shadow.
-					div
-						img.display(src='../pictures_icons/quality.jpeg' alt='')
-						span.rating
-					.name2 Quality Supermarket
-					.info
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/star.svg' alt='')
-							| 3.7
-						a.sh(href='../')
-							img.tiny(src='../pictures_icons/location.png' alt='')
-							| 2km
-
+link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+div.col
+form(action='/bayoffice/home' method='GET')
+  a(href='/bayoffice/vehicle') Register Vehicle
+    .Opt.shadow
+      div
+        img(src='wash2.jpeg' alt='')
+        span.rating
+      .name2 Shoprite
+  a(href='/bayoffice/washer') Add Washer
+    .Opt.shadow.
+      div
+        img.display(src='../pictures_icons/pizza hut.png' alt='')
+        span.rating
+      .name2 Pizza Hut
+  a(href='/bayoffice/expenses') Add Expenses
+    .Opt.shadow
+      div
+        img.display(src='../pictures_icons/kfc.png' alt='')
+        span.rating
+      .name2 KFC
+  a(href='/bayoffice/manager') Add Manager
+    .Opt.shadow.
+      div
+        img.display(src='../pictures_icons/quality.jpeg' alt='')
+        span.rating
+      .name2 Quality Supermarket

@@ -4,11 +4,10 @@ const passport=require('passport')
 const mongoose=require('mongoose')
 const moment=require('moment')
 const homeRoutes = require('./routes/homeRoutes');
-const regRoutes = require('./routes/regRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const bayofficeRoutes = require('./routes/bayofficeRoutes');
 const Manager=require('./model/Manager')
-const Registration=require('./model/Registration');
+const Registration=require('./model/Manager')
 
 const expressSession =require('express-session')({
 secret:'secret',
@@ -40,20 +39,20 @@ app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(Registration.createStrategy()&&Manager.createStrategy());
-passport.serializeUser(Registration.serializeUser()&&Manager.serializeUser());
-passport.deserializeUser(Registration.deserializeUser()&&Manager.deserializeUser());
+passport.use(Manager.createStrategy());
+passport.serializeUser(Manager.serializeUser());
+passport.deserializeUser(Manager.deserializeUser());
 
-var loginChecker=function(req,res,next){
-	if(req.path != '/home/login'&& req.path !='/'&& req.path !='/register'&& !req.session.user){
+/* var loginChecker=function(req,res,next){
+if(req.path != '/home/login'&& req.path !='/'&& req.path !='/register'&& !req.session.user){
 		res.redirect('/home/login')
 	}
 	next()
 }
-app.use(loginChecker)
+app.use(loginChecker)*/
 // routes
 app.use('/', homeRoutes);
-app.use('/register', regRoutes);
+app.use('/', bayofficeRoutes);
 app.use('/home', loginRoutes);
 app.use('/bayoffice', bayofficeRoutes);
 
