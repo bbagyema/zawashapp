@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
-const managerSchema=new mongoose.Schema({
+const passportLocalMongoose=require('passport-local-mongoose');
+const registrationSchema=new mongoose.Schema({
 	fname:{
 		type: String,
 		trim: true,
@@ -15,24 +16,29 @@ const managerSchema=new mongoose.Schema({
 	email:{
 		type:String,
 		trim:true,
-	}
-	pass:{
+	},
+	username:{
 		type:String,
 		trim:true,
-	}
-	pass_confirm:{
+	},
+	password:{
 		type:String,
 		trim:true,
-	}
+	},
+	password_confirm:{
+		type:String,
+		trim:true,
+	},
 	origin:{
 		type:String,
 		trim:true,
-	}
+	},
 	nin:{
 		type:Number,
 		trim:true,
-	}
+	},
 	
 
 })
-module.exports=mongoose.model('registration',regSchema);
+registrationSchema.plugin(passportLocalMongoose);
+module.exports=mongoose.model('Registration',registrationSchema);

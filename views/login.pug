@@ -1,11 +1,22 @@
-extend layout
-
-block content
-	form(method='GET' action='/home/login')
-		input#phone_email.form-control(placeholder='Phone Number or Email' name='phone_email')
-		br
-		input#pass.form-control(placeholder='Password' name='pass')
-		br
+link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+header.card-header(style='background-image:linear-gradient(to top left,#0066ff,#86cefa)')
+	h3
+		strong Zawash
+		h6=title
+form(method='POST' action='/home/login')
+	div.form-row
+		div.col.form-group
+			input.form-control(placeholder='Username' name='username')
+		div.col.form-group
+	div.form-row
+		div.col.form-group
+				input.form-control(placeholder='Password' name='pass')
+	div.form-row
+		div.col.form-group
 		button.btn.btn-primary(type='button') Login
-	a(href='')
-		p Forgot Password
+	div.form-row 
+		a(href='') Forgot Password
+		span
+		p Dont have ann account?
+		div.float-right
+			a(href='/register') Sign up

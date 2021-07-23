@@ -1,37 +1,33 @@
 extends layout
 block content
-    header.card-header
-        h3
-            strong Zawash
-        strong=title
-        br
-    nav
-    #nav-tab.nav.nav-tabs(role='tablist')
-        a#nav-contact-tab.nav-item.nav-link.active(href='/register/washer')  Add Washer
-        a#nav-profile-tab.nav-item.nav-link(href='/register/vehicle')  Add Vehicle
-        a#nav-contact-tab.nav-item.nav-link(href='/register/manager')  Add Manager
-        a#nav-profile-tab.nav-item.nav-link(href='/register/expenses')  Add Expenses
-    #nav-tabContent.tab-content
-        br
-        form(method="POST" action='/register/washer')
-            div.form-row
-                div.col.form-group 
-                    input.form-control( placeholder="Full Name" name="fullname")
-            div.form-row
-                div.col.form-group
-                    input.form-control(placeholder='NIN' name="nin")
-                div.col.form-group
-                    input.form-control( placeholder='PhoneNumber' name="phone")
-                div.col.form-group
-                    select.form-control(name="gender")
-                        option(value="male") Male
-                        option(value="female") Female
+    if alert=="success"
+        div.alert.alert-success Washer added successfully.
+    if alert=="error"
+        div.alert.alert-danger An erroroccured, failed to add washer.
+    form(method="POST" action='/bayoffice/washer')
+        div.form-row
+            div.col.form-group 
+                input.form-control( placeholder="First Name" name="fname")
+            div.col.form-group
+                input.form-control(placeholder='Last Name' name='lname')
+        div.form-row
+            div.col.form-group
+                input.form-control( placeholder='Phone Number' name="phone" type='number')
+        div.form-row
+            div.col.form-group
+                input.form-control(placeholder="Date of Birth" name='dob' type='date')
+            div.col.form-group
+                select.form-control(name="gender")
+                    option(value="male") M
+                    option(value="female") F
+            div.col.form-group
+                input.form-control(placeholder="NIN" name="nin" type="number")
             div.form-row
                 div.col.form-group
                     input.form-control(placeholder="Place of Residence" name="residence")
             div.form-row
                 div.col.form-group
-                    button.btn.btn-primary.btn-block Register 
+                    button.btn.btn-primary.btn-block Add Washer 
                 
 
                             

@@ -4,14 +4,24 @@ html
         link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
         title= title
     body
-        div.row.justify-content-center
-            div.col-md-6
-                div.card-body
-                    block content
-    footer.row.justify-content-center
+        header.card-header(style='background-image:linear-gradient(to top left,#0066ff,#86cefa)')
+            h3
+                strong Zawash
+                h6=title
+        nav
+            #nav-tab.nav.nav-tabs(role='tablist')
+                a#nav-home-tab.nav-item.nav-link(href='/bayoffice') Home
+                a#nav-profile-tab.nav-item.nav-link(href='/bayoffice/vehicle')  Add Vehicle
+                a#nav-contact-tab.nav-item.nav-link(href='/bayoffice/washer')  Add Washer
+                a#nav-profile-tab.nav-item.nav-link(href='/bayoffice/expenses')  Add Expenses
+                a#nav-contact-tab.nav-item.nav-link(href='/bayoffice/manager')  Add Manager
+            #nav-tabContent.tab-content
+    div.row.justify-content-center
+        div.col-md-6
+            div.card-body
+            block content
+    footer.row.justify-content-center(style='background-color:#0088ff')
         div.col-md-6
             block footer
-            div.float-left
                 p Find us along Mawanda Rd, Kampala.
-            br
-            div ©Air Solutions, 2021.
+                p ©Air Solutions, 2021.

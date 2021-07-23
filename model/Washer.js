@@ -1,0 +1,30 @@
+const mongoose=require('mongoose');
+const washerSchema= new mongoose.Schema({
+	fname:{
+		type:String,
+		trim:true
+	},
+	lname:{
+		type:String,
+		trim:true,
+	},
+	dob:{
+		type:Date,
+	},
+	nin:{
+		type:String,
+		trim:true,
+	},
+	gender:{
+		type:String,
+		trim:true,
+	},
+	phone:{
+		type:Number,
+	},
+	residence:{
+		type:String,
+		trim:true,
+	},
+});
+module.exports=mongoose.model('Washer',washerSchema);

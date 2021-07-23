@@ -1,28 +1,28 @@
 extends layout
 block content
-    header.card-header
-        h4.card-title Register Manager
-    br
-    nav
-    #nav-tab.nav.nav-tabs(role='tablist')
-        a#nav-home-tab.nav-item.nav-link(href='/') Home
-        a#nav-profile-tab.nav-item.nav-link(href='/register/vehicle')  Add Vehicle
-        a#nav-contact-tab.nav-item.nav-link(href='/register/washer')  Add Washer
-        a#nav-profile-tab.nav-item.nav-link(href='/register/expenses')  Add Expenses
-        a#nav-contact-tab.nav-item.nav-link.active(href='/register/manager')  Add Manager
-    #nav-tabContent.tab-content
-        br
-        form(method="POST" action='/register/manager')
-            div.form-row
-                div.col.form-group
-                    label Username
-                    input.form-control(name="username")
-                div.col.form-group
-                    label Password
-                    input.form-control(type="password" name="password")
-            div.form-row
-                div.col.form-group
-                    button.btn.btn-primary.btn-block Register 
+	if alert=="success"
+		div.alert.alert-success New manager successfully added.
+	if alert=="error"
+		div.alert.alert-danger An error occured,new manager not added.
+    form(method="POST" action='/bayoffice/manager')
+        div.form-row
+            div.col.form-group
+            	input.form-control(placeholder='First Name' name='fname')
+            div.col.form-group
+            	input.form-control(placeholder='Last Name' name='lname')
+        div.form-row
+            div.col.form-group
+            	input.form-control(placeholder='Phone Number' name='phone')
+        div.form-row
+            div.col.form-group
+            	input.form-control(placeholder='Email(optional)' name='email')
+            div.col.form-group
+                input.form-control(placeholder='Username' name="username")
+            div.col.form-group
+                input.form-control(placeholder='Create Password' type="password" name="password")
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block Add Manager 
                 
 
                             
