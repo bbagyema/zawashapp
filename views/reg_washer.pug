@@ -4,7 +4,7 @@ block content
         div.alert.alert-success Washer added successfully.
     if alert=="error"
         div.alert.alert-danger An erroroccured, failed to add washer.
-    form(method="POST" action='/bayoffice/washer')
+    form-group(method="POST" action='/bayoffice/washer')
         div.form-row
             div.col.form-group 
                 input.form-control( placeholder="First Name" name="fname")
@@ -22,34 +22,35 @@ block content
                     option(value="female") F
             div.col.form-group
                 input.form-control(placeholder="NIN" name="nin" type="number")
-            div.form-row
-                div.col.form-group
-                    input.form-control(placeholder="Place of Residence" name="residence")
-            div.form-row
-                div.col.form-group
-                    button.btn.btn-primary.btn-block Add Washer
+        div.form-row
+            div.col.form-group
+                input.form-control(placeholder="Place of Residence" name="residence")
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block Add Washer
     br
-    h3
-        Strong Washer List
-    table.table.table-bordered
-        thead
-            tr
-                th Full Name
-                th NIN
-                th Date of Birth
-                th Phone Number
-                th Gender
-                th Place of Residence
-        tbody
+    table.table.table-bordered 
+            thead
+                tr
+                    th Full Name 
+                    th NIN
+                    th Date of Birth
+                    th Phone Number
+                    th Gender
+                    th Place of Residence
+                    th Work ID
+                    th
+            tbody
             if users.length
-                each user in users
-                    tr
-                        td #{user.lname +''+ user.fname}
-                        td #{user.nin}
-                        td #{moment(user.dob).format('DD?MM?YYYY')}
-                        td #{user.phone}
-                        td #{user.gender}
-                        td #{user.residence}
-                            form(method='POST' action='/bayoffice/washer/delete_washer')
-                                input(type='hidden', placeholder='', name='id',value=user._id)
-                                button.btn.btn-primary.btn-block(type='submit') Delete Washer 
+            each user in users
+                tr
+                    td #{user.fullname}
+                    td #{user.nin}
+                    td #{moment(user.dob).format('DD/MM/YYYY')}
+                    td #{user.phone}
+                    td #{user.gender}
+                    td #{user.residence}
+                    td #{user.id}
+    form(method='POST' action='/washer/delete-washer')
+        input(type=hidden  placeholder='' name='id' value=user._id)
+        button.btn.btn-primary.btn-block(type='submit') Delete    

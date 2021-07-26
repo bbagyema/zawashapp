@@ -1,27 +1,29 @@
 link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-div.col
-form(action='/bayoffice/home' method='GET')
-  a(href='/bayoffice/vehicle') Register Vehicle
-    .Opt.shadow
-      div
-        img(src='wash2.jpeg' alt='')
-        span.rating
-      .name2 Shoprite
-  a(href='/bayoffice/washer') Add Washer
-    .Opt.shadow.
-      div
-        img.display(src='../pictures_icons/pizza hut.png' alt='')
-        span.rating
-      .name2 Pizza Hut
-  a(href='/bayoffice/expenses') Add Expenses
-    .Opt.shadow
-      div
-        img.display(src='../pictures_icons/kfc.png' alt='')
-        span.rating
-      .name2 KFC
-  a(href='/bayoffice/manager') Add Manager
-    .Opt.shadow.
-      div
-        img.display(src='../pictures_icons/quality.jpeg' alt='')
-        span.rating
-      .name2 Quality Supermarket
+link(rel='stylesheet', href='style.css')
+header.card-header(style='background-image:linear-gradient(to top left,#0066ff,#86cefa)')
+  h3
+    strong Zawash
+    h6=title
+br
+form(action='/bayoffice/home' method='POST')
+  .card-list
+    .card
+      div(class='veh_image')
+        img(src='' alt='')
+      div(class='veh_link')
+        a(href='/bayoffice/vehicle') Register Vehicle
+    .card
+      div(class='wash_image')
+        img(src='')
+      div(class='wash_link')
+        a(href='/bayoffice/washer') Add Washer
+    .card
+      div(class='exp_image')
+        img(src='')
+      div(class='exp_link')
+        a(href='/bayoffice/expenses') Add Expenses
+    .card
+      div(class='mng_image')
+        img(src='')
+      div(class='mng_link')
+        a(href='/bayoffice/manager') Add Manager

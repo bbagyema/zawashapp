@@ -16,7 +16,7 @@ washPackages = {
 	bodaboda:{washerFee:1500,packagePrice:5000},
 	engine:{washerFee:2000,packagePrice:10000}
 }
-router.get('/home', (req,res)=>{
+router.get('/', (req,res)=>{
     res.render("bay_office",{title:"Bay Office"}) 
    })
 //washer routes
@@ -35,6 +35,16 @@ router.post('/washer',async(req,res)=>{
 		res.status(400).render('reg_washer', {title:'Register Washer',
 			alert:'error'})
 			console.log(err)
+	}
+})
+router.get('/washers',async(req,res)=>{
+	try{
+
+		let washerDetails=await Washer.find();
+		res.render('reg_washer',{users:washerDetails})
+	}catch(err){
+		console.log(err)
+		res.send('Failed to retrive washer details.')
 	}
 })
 //vehicle/customer routes
@@ -69,24 +79,7 @@ router.post('/vehicle', async(req,res)=>{
 		}
 	})
 //manager routes
-router.get('/register', (req,res)=>{
-    res.render('registration', 
-    	{title:"Create Bayoffice",
-    	alert:req.query.alert})
-})
-router.post('/register',async(req,res)=>{
-	const manager= new Manager(req.body);
-	await Manager.register(manager, req.body.password, (err)=>{
-		if(err){
-			res.status(400).render('registration',
-				{title:'Create Bayoffice',
-				alert:'error'})
-			console.log(err)
-		}else{
-			res.render('bayoffice')
-		}
-	})
-})
+
 router.get('/manager', (req,res)=>{
     res.render('add_manager', 
     	{title:"Add Manager",
@@ -113,7 +106,7 @@ router.get("/expenses", (req,res)=>{
     	try{
     		const expense= new Expense(req.body);
     		await expense.save()
-    		res.redirect('expenses?alert=success')
+    		res.redirect('expenses?al ert=success')
     	}
     	catch (err){
     		res.status(400).render('add_expenses',{title:'Add Expenses',alert:'error'})
@@ -131,4 +124,8 @@ router.get("/expenses", (req,res)=>{
     	}  
 
  	})
+ 	router.get('/carwasher_list', (req,res)=>{
+    res.render('carwasher_list', 
+    	{title:"Car Washer List"})
+})
 module.exports=router;

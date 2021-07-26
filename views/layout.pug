@@ -9,12 +9,14 @@ html
                 strong Zawash
                 h6=title
         nav
-            #nav-tab.nav.nav-tabs(role='tablist')
-                a#nav-home-tab.nav-item.nav-link(href='/bayoffice/home') Home
+            #nav-tab.nav(role='tablist')
+                a#nav-home-tab.nav-item.nav-link(href='/bayoffice') Home
                 a#nav-profile-tab.nav-item.nav-link(href='/bayoffice/vehicle')  Add Vehicle
                 a#nav-contact-tab.nav-item.nav-link(href='/bayoffice/washer')  Add Washer
                 a#nav-profile-tab.nav-item.nav-link(href='/bayoffice/expenses')  Add Expenses
                 a#nav-contact-tab.nav-item.nav-link(href='/bayoffice/manager')  Add Manager
+                div.container.float-right
+                    a.float-right(href='/reports') Reports
             #nav-tabContent.tab-content
     div.row.justify-content-center
         div.col-md-6
@@ -23,5 +25,6 @@ html
     footer.row.justify-content-center(style='background-color:#0088ff')
         div.col-md-6
             block footer
-                p Find us along Mawanda Rd, Kampala.
-                p ©Air Solutions, 2021.
+                small
+                    p Find us along Mawanda Rd, Kampala.
+                    p ©Air Solutions, 2021.

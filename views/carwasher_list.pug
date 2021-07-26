@@ -1,0 +1,28 @@
+header.card-header
+    h3 
+        strong Zawash
+        h6=title
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-profile-tab.nav-item.nav-link.active(href='/report/payout')  Car Washer Payout
+        a#nav-contact-tab.nav-item.nav-link(href='/report/returns')  Costs and Returns Report
+    #nav-tabContent.tab-content
+        br
+    form(action='bayoffice/carwasher_list' method="POST")
+        table.table.table-bordered 
+            thead
+                tr
+                    th Full Name 
+                    th Number of cars
+                    th Payout Amount
+            tbody
+            if washer.length
+            each washer in washers
+                tr
+                    td #{washer.details[0].lname +" " + washer.details[0].fname }
+                    td #{washer.count }
+                    td #{washer.totalPayout}
+                tr
+                    th(colspan=2) Total Payout
+                    td #(new Intl.NumberFormat().format(sumPayout.totalPayoutPerDay)}
